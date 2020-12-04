@@ -30,4 +30,13 @@ public class Employee
     {
         this.age = age;
     }
+
+    @Override
+    public String toString()
+    {
+        return "Employee{" +
+            "name='" + name + '\'' +
+            ", age=" + age +
+            '}';
+    }
 }
