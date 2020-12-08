@@ -1,6 +1,5 @@
 package com.webflux.controllers;
 
-import java.time.Duration;
 import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -41,8 +40,9 @@ public class EmployeesController
     {
         System.out.println("Calling thread: " + Thread.currentThread().getName());
         return Flux.fromIterable(iEmployeeService.findAll())
-            .delayElements(Duration.ofSeconds(2))
-            .log();
+            //.delayElements(Duration.ofSeconds(2))
+            .log()
+            .limitRate(3);
     }
 
     @GetMapping(value = "/flux/{id}")
